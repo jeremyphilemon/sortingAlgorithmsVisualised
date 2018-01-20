@@ -1,0 +1,34 @@
+html, body {
+  height: 100%;
+}
+
+html::-webkit-scrollbar {
+  background-color: whitesmoke;
+  width: 4px;
+  height: 0;
+}
+
+html::-webkit-scrollbar-thumb {
+  background-color: #424242;
+}
+
+.footer {
+  background-color: whitesmoke;
+  padding: 3rem 1.5rem 3rem;
+  color: #36057E;
+  font-weight: 600;
+  margin-top: -6px;
+  bottom: 0;
+}
+
+.visualisation svg {
+  padding-top: 1rem;
+}
+
+.feather-icon {
+  vertical-align: top;
+}
+
+.label {
+  font-weight: normal;
+}
