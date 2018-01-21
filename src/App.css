@@ -1,5 +1,6 @@
 html, body {
   height: 100%;
+  background: whitesmoke;
 }
 
 html::-webkit-scrollbar {
@@ -9,7 +10,7 @@ html::-webkit-scrollbar {
 }
 
 html::-webkit-scrollbar-thumb {
-  background-color: #424242;
+  background-color: #42424242;
 }
 
 .footer {
@@ -23,6 +24,7 @@ html::-webkit-scrollbar-thumb {
 
 .visualisation svg {
   padding-top: 1rem;
+  background: #fff;
 }
 
 .feather-icon {
@@ -31,4 +33,13 @@ html::-webkit-scrollbar-thumb {
 
 .label {
   font-weight: normal;
+}
+
+.button {
+  margin-right: 5px;
+}
+
+.sliders {
+  cursor: pointer;
+  transition-duration: .15s;
 }

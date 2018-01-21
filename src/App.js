@@ -9,7 +9,8 @@ import Footer from './components/Footer';
 
 import feather from 'feather-icons';
 
-import 'bulma-slider';
+import 'bulma-slider/bulma-slider.css';
+import 'bulma-slider/slider.js';
 
 class App extends Component {
   constructor(props) {
@@ -64,16 +65,17 @@ class App extends Component {
     this.bubbleSort();
   }
 
-  handleChange(e){
+  handleChange(recieveVal){
     this.bubbleSort();
+    document.getElementById('slider').value=recieveVal;
   }
 
   render() {
     return (
       <div className="App">
-
-        <section className="hero">
+        <section className="hero is-white">
           <div className="hero-body">
+            <i className="sliders is-pulled-right" data-feather="sliders"/>
             <div className="container">
               <h1 className="title">
                 Bubble Sort
@@ -81,8 +83,52 @@ class App extends Component {
               <h2 className="subtitle">
                 Using <b>D3.js</b>
               </h2>
-              <Button clickFn={this.iterate.bind(null, this.state.i, this.state.j)} i={this.state.i} j={this.state.j}/>
-              <input class="slider is-fullwidth" step="1" min="0" max="100" value="0" type="range" onChange={(e) => {this.handleChange(e);}}/>
+
+              <nav className="level is-mobile">
+                <div className="level-item has-text-centered">
+                  <div>
+                    <p className="heading">Unsort</p>
+                    <p className="title">
+                      <Button clickFn={this.iterate.bind(null, this.state.i, this.state.j)} i={this.state.i} j={this.state.j} icon="bar-chart-2"/>        
+                    </p>
+                  </div>
+                </div>
+                <div className="level-item has-text-centered">
+                  <div>
+                    <p className="heading">Next iteration</p>
+                    <p className="title">
+                      <Button clickFn={this.iterate.bind(null, this.state.i, this.state.j)} i={this.state.i} j={this.state.j} icon="chevron-right"/>
+                    </p>
+                  </div>
+                </div>
+                <div className="level-item has-text-centered">
+                  <div>
+                    <p className="heading">Play</p>
+                    <p className="title">
+                      <Button clickFn={this.iterate.bind(null, this.state.i, this.state.j)} i={this.state.i} j={this.state.j} icon="play"/>        
+                    </p>
+                  </div>
+                </div>
+                <div className="level-item has-text-centered">
+                  <div>
+                    <p className="heading">Previous iteration</p>
+                    <p className="title">
+                      <Button clickFn={this.iterate.bind(null, this.state.i, this.state.j)} i={this.state.i} j={this.state.j} icon="chevron-left"/>        
+                    </p>
+                  </div>
+                </div>
+                <div className="level-item has-text-centered">
+                  <div>
+                    <p className="heading">Sort</p>
+                    <p className="title">
+                      <Button clickFn={this.iterate.bind(null, this.state.i, this.state.j)} i={this.state.i} j={this.state.j} icon="bar-chart"/>    
+                    </p>
+                  </div>
+                </div>
+              </nav>
+
+              {/*<input className="slider is-fullwidth is-warning" id="slider" step="1" min="0" max="100" type="range" value="0" onChange={() => {this.handleChange(this.value);}}/>*/}
+
             </div>
           </div>
         </section>

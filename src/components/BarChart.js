@@ -18,16 +18,15 @@ class BarChart extends Component {
     this.createBarChart();
   }
 
-  componentWillReceiveProps() {
-    const meta = this.props.meta;
-    meta[1] = meta[1]+1;
-    this.setState({
-      'meta': meta
-    });
+  componentWillReceiveProps(nextProps) {
+    if(this.props.meta[1]!==nextProps.meta[1]) {
+      this.setState({
+        'meta': nextProps.meta
+      });
+    }
   }
 
   createBarChart() {
-    console.log(this.state.dataMax);
     const node = this.node;
     const dataMax = max(this.props.data);
     const yScale = scaleLinear()
@@ -65,6 +64,10 @@ class BarChart extends Component {
       .attr('y', d => this.props.size[1] - yScale(d) + 18)
       .style('fill', 'whitesmoke')
       .text((d) => d);
+
+    for(let start=0; start<this.state.meta[0]; start++) {
+      select(node).select(`rect[id='${start}']`).style('fill', '#FDCD3D');
+    }
 
     select(node).select(`rect[id='${this.state.meta[0]}']`).style('fill', '#8D2BFF');
     select(node).select(`rect[id='${this.state.meta[1]}']`).style('fill', '#0D8EFF');

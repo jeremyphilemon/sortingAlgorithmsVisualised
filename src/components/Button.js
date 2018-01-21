@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class Button extends Component {
   constructor(props) {
     super(props);
-    this.state = {'i': this.props.i, 'j': this.props.j, 'clickFn': this.props.clickFn};
+    this.state = {'i': this.props.i, 'j': this.props.j, 'clickFn': this.props.clickFn, 'icon': this.props.icon};
   }
 
   componentDidMount() {
@@ -16,7 +16,7 @@ class Button extends Component {
 
   render() {
     return(
-      <a className="button is-success" onClick={this.state.clickFn}><i data-feather="arrow-right"/></a>
+      <a className="button is-light" onClick={this.state.clickFn}><i data-feather={this.state.icon}/></a>
     );
   }
 }
