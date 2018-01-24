@@ -21,9 +21,13 @@ const DATA = [40, 19, 16, 1, 38, 99 , 43, 53, 94, 14,
 class App extends Component {
   constructor(props) {
     super(props);
+    this.timer = null;
     this.state = {data: DATA, i: 0, j: 1};
+
     this.iterate = this.iterate.bind(this);
+    this.bubbleSort = this.bubbleSort.bind(this);
     this.unsort = this.unsort.bind(this);
+    this.play = this.play.bind(this);
   }
 
   componentDidMount() {
@@ -31,7 +35,7 @@ class App extends Component {
   }
 
   unsort() {
-    console.log("her");
+    clearInterval(this.timer);
     this.setState({
       data: DATA,
       i: 0,
@@ -75,6 +79,12 @@ class App extends Component {
     this.bubbleSort();
   }
 
+  play() {
+    // To prevent repeatetive setIterval functions
+    clearInterval(this.timer);
+    this.timer = setInterval(this.bubbleSort, 100);
+  }
+
   handleChange(recieveVal){
     this.bubbleSort();
     document.getElementById('slider').value=recieveVal;
@@ -115,7 +125,7 @@ class App extends Component {
                   <div>
                     <p className="heading">Play</p>
                     <p className="title">
-                      <Button clickFn={this.iterate.bind(null, this.state.i, this.state.j)} i={this.state.i} j={this.state.j} icon="play"/>        
+                      <Button clickFn={this.play} icon="play"/>        
                     </p>
                   </div>
                 </div>
