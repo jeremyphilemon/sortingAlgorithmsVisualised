@@ -109,7 +109,7 @@ class App extends Component {
                   <div>
                     <p className="heading">Unsort</p>
                     <p className="title">
-                      <Button clickFn={this.unsort} i={this.state.i} j={this.state.j} icon="bar-chart-2"/>        
+                      <Button clickFn={this.unsort} icon="bar-chart-2"/>        
                     </p>
                   </div>
                 </div>
@@ -117,7 +117,7 @@ class App extends Component {
                   <div>
                     <p className="heading">Next iteration</p>
                     <p className="title">
-                      <Button clickFn={this.iterate.bind(null, this.state.i, this.state.j)} i={this.state.i} j={this.state.j} icon="chevron-right"/>
+                      <Button clickFn={this.iterate} icon="chevron-right"/>
                     </p>
                   </div>
                 </div>
@@ -133,7 +133,7 @@ class App extends Component {
                   <div>
                     <p className="heading">Previous iteration</p>
                     <p className="title">
-                      <Button clickFn={this.iterate.bind(null, this.state.i, this.state.j)} i={this.state.i} j={this.state.j} icon="chevron-left"/>        
+                      <Button clickFn={this.iterate} icon="chevron-left"/>        
                     </p>
                   </div>
                 </div>
@@ -141,7 +141,7 @@ class App extends Component {
                   <div>
                     <p className="heading">Sort</p>
                     <p className="title">
-                      <Button clickFn={this.iterate.bind(null, this.state.i, this.state.j)} i={this.state.i} j={this.state.j} icon="bar-chart"/>    
+                      <Button clickFn={this.iterate} icon="bar-chart"/>    
                     </p>
                   </div>
                 </div>

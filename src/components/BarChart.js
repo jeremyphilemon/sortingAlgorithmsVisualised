@@ -42,12 +42,6 @@ class BarChart extends Component {
       .enter()
       .append('rect');
 
-    // select(node)
-    //   .selectAll('rect')
-    //   .data(this.props.data)
-    //   .exit()
-    //   .remove();
-
     select(node)
       .selectAll('rect')
       .data(this.props.data)
@@ -66,7 +60,7 @@ class BarChart extends Component {
       .attr('x', (d, i) => i*25 + 3)
       .attr('y', d => this.props.size[1] - yScale(d) + 18)
       .style('fill', 'whitesmoke')
-      .text((d) => {console.log(d); return d});
+      .text((d) => d);
 
     select(node).select(`rect[id='${this.props.meta[0]}']`).style('fill', '#8D2BFF');
     select(node).select(`rect[id='${this.props.meta[1]}']`).style('fill', '#0D8EFF');
@@ -96,7 +90,7 @@ class BarChart extends Component {
       .attr('x', (d, i) => i*25 + 3)
       .attr('y', d => this.props.size[1] - yScale(d) + 18)
       .style('fill', 'whitesmoke')
-      .text((d) => {console.log(d); return d});
+      .text((d) => d);
 
     for(let start=0; start<this.props.meta[0]; start++) {
       select(node).select(`rect[id='${start}']`).style('fill', '#FDCD3D');
