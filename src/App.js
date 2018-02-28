@@ -12,20 +12,20 @@ import feather from 'feather-icons';
 import 'bulma-slider/bulma-slider.css';
 import 'bulma-slider/slider.js';
 
-const DATA = [40, 19, 16, 1, 38, 99 , 43, 53, 94, 14, 
-  29, 2, 4, 61, 92, 10, 86, 45, 28, 65, 30, 80, 12, 23, 
-  5, 78, 77, 46, 82, 69, 63, 95, 36, 18, 24, 41, 50, 
-  60, 68, 31, 42, 13, 93, 88, 56, 85, 32, 51, 9, 43,
-  57, 48, 35,72, 61,72, 12, 31, 21, 92];
+const Data = [40, 19, 16, 10, 38, 99 , 43, 53, 94, 14, 
+  29, 20, 40, 61, 92, 10, 86, 45, 28, 65, 30, 80, 12, 23, 
+  50, 78, 77, 46, 82, 69, 63, 95, 36, 18, 24, 41, 50, 
+  60, 68, 31, 42, 13, 93, 88, 56, 85, 32, 51, 90, 43,
+  57, 48, 35, 72, 61, 72, 12, 31, 21, 92];
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.timer = null;
-    this.state = {data: DATA, i: 0, j: 1};
+    this.state = {data: Data, i: 0, j: 1};
 
     this.iterate = this.iterate.bind(this);
-    this.bubbleSort = this.bubbleSort.bind(this);
+    this.selectionSort = this.selectionSort.bind(this);
     this.unsort = this.unsort.bind(this);
     this.play = this.play.bind(this);
   }
@@ -37,13 +37,13 @@ class App extends Component {
   unsort() {
     clearInterval(this.timer);
     this.setState({
-      data: DATA,
+      data: Data,
       i: 0,
       j: 1
     });
   }
 
-  bubbleSort() {
+  selectionSort() {
     const data = [...this.state.data];
     let i = this.state.i;
     if(i<data.length-1) {
@@ -54,19 +54,16 @@ class App extends Component {
           data[i] = data[j];
           data[j] = temp;
         }
-        if(j==data.length-1) {
+        if(j===data.length-1) {
           j = i+1;
         }
         else {
           j++;
         }
       }
-      if(j==data.length-1) {
+      if(j===data.length-1) {
         i++;
       }
-      // Update state as minimum as you can
-      // Each setState triggers a render
-      // So be sensitive about it
       this.setState({
         data: data,
         i: i,
@@ -76,13 +73,12 @@ class App extends Component {
   }
 
   iterate() {
-    this.bubbleSort();
+    this.selectionSort();
   }
 
   play() {
-    // To prevent repeatetive setIterval functions
     clearInterval(this.timer);
-    this.timer = setInterval(this.bubbleSort, 100);
+    this.timer = setInterval(this.selectionSort, 100);
   }
 
   handleChange(recieveVal){

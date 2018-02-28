@@ -15,6 +15,7 @@
     "d3-svg-legend": "^2.25.4",
     "d3-transition": "^1.1.1",
     "feather-icons": "^4.5.0",
+    "npm": "^5.6.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-scripts": "1.1.0"
