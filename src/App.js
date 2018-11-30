@@ -9,9 +9,6 @@ import Footer from './components/Footer';
 
 import feather from 'feather-icons';
 
-import 'bulma-slider/bulma-slider.css';
-import 'bulma-slider/slider.js';
-
 const Data = [40, 19, 16, 10, 38, 99 , 43, 53, 94, 14, 
   29, 20, 40, 61, 92, 10, 86, 45, 28, 65, 30, 80, 12, 23, 
   50, 78, 77, 46, 82, 69, 63, 95, 36, 18, 24, 41, 50, 
@@ -91,6 +88,9 @@ class App extends Component {
       <div className="App">
         <section className="hero is-white">
           <div className="hero-body">
+          <div class="notification is-link">
+            There seems to be a bug with the dependencies, so I've disabled most of the functionalities for the time being. This is embarrasing. Will do a quick fix after finals week. Cheers 🍃
+          </div>
             <i className="sliders is-pulled-right" data-feather="sliders"/>
             <div className="container">
               <h1 className="title">
